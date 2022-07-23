@@ -18,16 +18,18 @@ def __Convert__():
     if resultado == "no":
         frame.destroy()  #REVISE THE TEXT
     message = EntryTxt.get(1.0, "end-1c")#Get text box content
-    LbText = tk.Label(frame, text= message, width=58, height=30, bg="white",justify=tk.CENTER)
-    LbText.place(x=511,y=75)
-    list_encrypt = list(message)
     #print("LA LONGITUD ES: ",len(list_encrypt)) #this method is used to know the size of the list
     #print(list_encrypt[0])#show the element related to the index
-    __Encrypt__(list_encrypt)
+    __Encrypt__(message)
 # ----------------------------------- MODULE -> ENCRYPTION ------------------------------------------------------------
-def __Encrypt__(list_encrypt):
-    print("LA LONGITUD ES: ",len(list_encrypt)) #this method is used to know the size of the list
-    print(list_encrypt[0])#show the element related to the index
+def __Encrypt__(message):
+    list_encrypt = list(message)
+    encrypt_mess = __Algorit__Cesar(list_encrypt)
+    LbText = tk.Label(frame, text= encrypt_mess, width=58, height=30, bg="white",justify=tk.CENTER)
+    LbText.place(x=511,y=75)
+def __Algorit__Cesar(list_encrypt):
+    var = list_encrypt
+    return var
 # ----------------------------------------- colors ----------------------------------------------------------
 color_buttons = "#224c8d"
 color_panel = "#deeaf6"
