@@ -23,13 +23,18 @@ def __Convert__():
     __Encrypt__(message)
 # ----------------------------------- MODULE -> ENCRYPTION ------------------------------------------------------------
 def __Encrypt__(message):
-    list_encrypt = list(message)
-    encrypt_mess = __Algorit__Cesar(list_encrypt)
-    LbText = tk.Label(frame, text= encrypt_mess, width=58, height=30, bg="white",justify=tk.CENTER)
+    list_encrypt = list(message)# Convert string to list
+    encrypt_mess = __Algorithm__(list_encrypt)# get encrypted list
+    Message_fish = "".join(str(encrypt_mess))# 
+    LbText = tk.Label(frame, text= Message_fish, wraplength=390,width=58, height=35, bg="white",justify=tk.CENTER)
     LbText.place(x=511,y=75)
-def __Algorit__Cesar(list_encrypt):
-    var = list_encrypt
-    return var
+def __Algorithm__(list_encrypt):
+    new_list = []
+    for char in list_encrypt:
+        new_mess = ord(char)
+        new_mess = ((new_mess * 10)+7)
+        new_list.append(new_mess)
+    return new_list
 # ----------------------------------------- colors ----------------------------------------------------------
 color_buttons = "#224c8d"
 color_panel = "#deeaf6"
